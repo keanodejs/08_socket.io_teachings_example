@@ -1,0 +1,25 @@
+{
+  "name": "08_socket.io_teachings_example",
+  "version": "1.0.0",
+  "description": "class examples",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keanodejs/08_socket.io_teachings_example.git"
+  },
+  "keywords": [
+    "socket.io"
+  ],
+  "author": "clbo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keanodejs/08_socket.io_teachings_example/issues"
+  },
+  "homepage": "https://github.com/keanodejs/08_socket.io_teachings_example#readme",
+  "dependencies": {
+    "socket.io": "^1.5.0"
+  }
+}
