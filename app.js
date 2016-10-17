@@ -1,19 +1,26 @@
-// Use the socket.io module
-var http = require('http');
+var express = require('express');
+var app = express();
+var http = require('http').createServer(app);
 var fs = require('fs');
 
-var index = fs.readFileSync(__dirname + '/index.html');
+// var index = fs.readFileSync(__dirname + '/index.html');
 
-var server = http.createServer(function(req, res) {
+// var server = http.createServer(function(req, res) {
 
-    res.writeHead(200, { 'Content-type': 'text/html' });
-    res.end(index);
+//     res.writeHead(200, { 'Content-type': 'text/html' });
+//     res.end(index);
 
+// });
+
+// Use express framework and routing options
+
+app.get('/', function(req, res){
+	res.sendFile(__dirname + '/index.html');
 });
 
 // Implementing the Socket.io part
 // Socket.io server listens to our app
-var io = require('socket.io').listen(server);
+var io = require('socket.io').listen(http);
 
 io.on('connection', function(socket) {
     console.log('a user connected with id: ' + socket.id);
@@ -34,4 +41,4 @@ io.on('connection', function(socket) {
     });
 });
 
-server.listen(3002);
+http.listen(3002);
