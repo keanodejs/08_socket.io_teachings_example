@@ -2,7 +2,7 @@
 var http = require('http');
 var fs = require('fs');
 
-var index = fs.readFileSync(__dirname + '/index2.html');
+var index = fs.readFileSync(__dirname + '/index.html');
 
 var server = http.createServer(function(req, res) {
 
@@ -17,8 +17,10 @@ var io = require('socket.io').listen(server);
 
 io.on('connection', function(socket) {
     console.log('a user connected with id: ' + socket.id);
+
+    // Use socket to communicate with this particular client only, sending it it's own id
+    socket.emit('welcome', { message: 'Welcome!', id : socket.id});
+
 });
 
-server.listen(3002, function() {
-    process.stdout.write('Listening at port 3000 for incomming requests \n');
-});
+server.listen(3002);
