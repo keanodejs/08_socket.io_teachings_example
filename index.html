@@ -15,6 +15,20 @@
 
     socket.on('welcome', function(data) {
         addMessage(data.message);
+
+        socket.emit('boo', {
+            data: 'User connected',
+            id: data.id
+        });
+    });
+
+    socket.on('goodbuy', function(data) {
+        addMessage(data.message);
+
+        socket.emit('boo', {
+            data: 'Goodbuy',
+            id: data.id
+        });
     });
 
     socket.on('welcomeAll', function(data) {
