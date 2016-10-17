@@ -17,6 +17,10 @@
         addMessage(data.message);
     });
 
+    socket.on('welcomeAll', function(data) {
+        addMessage(data.message);
+    });
+
     function addMessage(message) {
         var text = document.createTextNode(message),
             el = document.createElement('li'),

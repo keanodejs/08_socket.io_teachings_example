@@ -21,6 +21,9 @@ io.on('connection', function(socket) {
     // Use socket to communicate with this particular client only, sending it it's own id
     socket.emit('welcome', { message: 'Welcome!', id : socket.id});
 
+ 	// Use socket to communicate with all clients, sending them the id of the new connection
+    socket.broadcast.emit('welcomeAll', { message: 'Welcome to: ' + socket.id, id: socket.id });
+
 });
 
 server.listen(3002);
